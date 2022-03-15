@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+const { stringify } = require('nodemon/lib/utils');
 
 const memberSchema = new Schema({
     firstName: {
@@ -23,6 +24,15 @@ const memberSchema = new Schema({
       required: true,
       minlength: 5
     },
+    age: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    joinDate: {
+//unsure of this format 
+        createdAt: ISODate(),
+    },
     squat: {
         type: String,
         required: false,
@@ -38,42 +48,12 @@ const memberSchema = new Schema({
         required: false,
         trim: true
     },
-    snatch: {
-        type: String,
-        required: false,
-        trim: true
-    },
-    cleanAndJerk: {
-        type: String,
-        required: false,
-        trim: true
-    },
-    fortyMeter:{
-        type: String,
-        required: false,
-        trim: true
-    },
-    hundredMeter:{
-        type: String,
-        required: false,
-        trim: true
-    },
-    mile:{
-        type: String,
-        required: false,
-        trim: true
-    },
     fiveK:{
         type: String,
         required: false,
         trim: true
     },
     tenK:{
-        type: String,
-        required: false,
-        trim: true
-    },
-    marathon:{
         type: String,
         required: false,
         trim: true
@@ -94,6 +74,6 @@ memberSchema.pre('save', async function(next) {
     return await bcrypt.compare(password, this.password);
   };
   
-  const User = mongoose.model('User', userSchema);
+  const Member = mongoose.model('Member', memberSchema);
   
-  module.exports = User;
+  module.exports = Member;
