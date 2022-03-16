@@ -1,13 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Nav from "./components/Nav";
+import Login from "./components/Login";
+import Homepage from "./components/Homepage";
+import Logout from "./components/Logout";
 
 function App() {
   return (
-    <div>
-      <header>
-
-      </header>
-    </div>
+    <main>
+      <Nav />
+      <Login />
+      <Homepage />
+      <Logout />
+    </main>
   );
 }
 
