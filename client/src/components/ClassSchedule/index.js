@@ -16,3 +16,5 @@ function ClassSchedule (){
         </section>
     )
 }
+
+export default ClassSchedule;
