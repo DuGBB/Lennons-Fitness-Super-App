@@ -1,16 +1,16 @@
 import "./App.css";
-import Nav from "./components/Nav";
+// import Nav from "./components/Nav";
 import Login from "./components/Login";
-import Homepage from "./components/Homepage";
-import Logout from "./components/Logout";
+// import Homepage from "./components/Homepage";
+// import Logout from "./components/Logout";
 
 function App() {
   return (
     <main>
-      <Nav />
+      {/* <Nav /> */}
       <Login />
-      <Homepage />
-      <Logout />
+      {/* <Homepage />
+      <Logout /> */}
     </main>
   );
 }
