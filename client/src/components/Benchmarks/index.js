@@ -33,7 +33,7 @@ function Benchmarks (){
                 <label htmlFor="deadlift" className="d-flex col-md justify-content-center">Deadlift</label>
                 <input type="text" className="form-control col-md" id="deadlift" name="deadlift"></input>
                 </div>
-                <div className="d-flex justify-content-center mt-2">
+                <div className="d-flex row justify-content-center mt-2">
                 <label htmlFor="fivek" className="d-flex col-md justify-content-center">5K</label>
                 <input type="text" className="form-control col-md" id="fiveK" name="fiveK"></input>
                 <label htmlFor="tenK" className="d-flex col-md justify-content-center">10K</label>

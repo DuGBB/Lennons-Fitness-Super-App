@@ -15,8 +15,6 @@ function App() {
   return (
     <div>
       <header></header>
-      <Benchmarks />
-      <ClassSchedule />
     </div>
   );
 }
