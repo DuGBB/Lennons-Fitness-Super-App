@@ -1,4 +1,6 @@
 import React from "react";
+import Benchmarks from "./components/Benchmarks";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
