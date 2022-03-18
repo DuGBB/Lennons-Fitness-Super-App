@@ -23,19 +23,27 @@ function Benchmarks (){
             <h2>
                 Update Your Benchmarks!
             </h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="squat">Squat</label>
-                <input type="text" className="form-control" id="squat" name="squat"></input>
-                <label htmlFor="bench">Bench</label>
-                <input type="text" className="form-control" id="bench" name="bench"></input>
-                <label htmlFor="deadlift">Deadlift</label>
-                <input type="text" className="form-control" id="deadlift" name="deadlift"></input>
-                <label htmlFor="fivek">5K</label>
-                <input type="text" className="form-control" id="fiveK" name="fiveK"></input>
-                <label htmlFor="tenK">10K</label>
-                <input type="text" className="form-control" id="tenK" name="tenK"></input>
-                <input type="submit"></input>
+            <div className="d-flex justify-content-center">
+            <form onSubmit={handleSubmit} className="w-75">
+              <div className="d-flex row justify-content-center">
+                <label htmlFor="squat" className="d-flex col-md justify-content-center">Squat</label>
+                <input type="text" className="form-control col-md" id="squat" name="squat"></input>
+                <label htmlFor="bench" className="d-flex justify-content-center col-md">Bench</label>
+                <input type="text" className="form-control col-md" id="bench" name="bench"></input>
+                <label htmlFor="deadlift" className="d-flex col-md justify-content-center">Deadlift</label>
+                <input type="text" className="form-control col-md" id="deadlift" name="deadlift"></input>
+                </div>
+                <div className="d-flex justify-content-center mt-2">
+                <label htmlFor="fivek" className="d-flex col-md justify-content-center">5K</label>
+                <input type="text" className="form-control col-md" id="fiveK" name="fiveK"></input>
+                <label htmlFor="tenK" className="d-flex col-md justify-content-center">10K</label>
+                <input type="text" className="form-control col-md" id="tenK" name="tenK"></input>
+                </div>
+                <div className="row justify-content-center">
+                <input type="submit" className="mt-2 w-50"></input>
+                </div>
             </form>
+            </div>
         </section>
     )
 };
