@@ -22,7 +22,7 @@ import './index.css';
 
 function App() {
   return (
-
+    
     <Home/>
 
     <div>
@@ -32,7 +32,7 @@ function App() {
       </header>
       <Footer />
 
-      <header></header>
+      
       <SignUpForm></SignUpForm>
 
     </div>
