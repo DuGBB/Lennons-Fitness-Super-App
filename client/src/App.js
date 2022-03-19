@@ -7,11 +7,14 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import LoginForm from "./components/Login";
 
 function App() {
   return (
     <div>
-      <header></header>
+      <header>
+        <LoginForm />
+      </header>
     </div>
   );
 }
