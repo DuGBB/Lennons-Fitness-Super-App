@@ -33,36 +33,6 @@ const memberSchema = new Schema(
       required: true,
       trim: true,
     },
-
-    // joinDate: {
-    //   //unsure of this format
-    //   createdAt: ISODate(),
-    // },
-    // squat: {
-    //   type: String,
-    //   required: false,
-    //   trim: true,
-    // },
-    // bench: {
-    //   type: String,
-    //   required: false,
-    //   trim: true,
-    // },
-    // deadlift: {
-    //   type: String,
-    //   required: false,
-    //   trim: true,
-    // },
-    // fiveK: {
-    //   type: String,
-    //   required: false,
-    //   trim: true,
-    // },
-    // tenK: {
-    //   type: String,
-    //   required: false,
-    //   trim: true,
-    // },
   },
   {
     timestamps: {

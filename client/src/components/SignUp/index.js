@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function SignUpForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit Form", formState);
+    console.log("Submit Form", useState);
   };
 
   return (
