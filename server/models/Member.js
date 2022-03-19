@@ -5,63 +5,71 @@ const { Schema } = mongoose;
 
 // const ISODate = new Date().toISOString();
 
-const memberSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true,
+const memberSchema = new Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [/.+@.+\..+/, "Must match an email address!"],
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
+    },
+    age: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+
+    // joinDate: {
+    //   //unsure of this format
+    //   createdAt: ISODate(),
+    // },
+    // squat: {
+    //   type: String,
+    //   required: false,
+    //   trim: true,
+    // },
+    // bench: {
+    //   type: String,
+    //   required: false,
+    //   trim: true,
+    // },
+    // deadlift: {
+    //   type: String,
+    //   required: false,
+    //   trim: true,
+    // },
+    // fiveK: {
+    //   type: String,
+    //   required: false,
+    //   trim: true,
+    // },
+    // tenK: {
+    //   type: String,
+    //   required: false,
+    //   trim: true,
+    // },
   },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5,
-  },
-  age: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  // joinDate: {
-  //   //unsure of this format
-  //   createdAt: ISODate(),
-  // },
-  // squat: {
-  //   type: String,
-  //   required: false,
-  //   trim: true,
-  // },
-  // bench: {
-  //   type: String,
-  //   required: false,
-  //   trim: true,
-  // },
-  // deadlift: {
-  //   type: String,
-  //   required: false,
-  //   trim: true,
-  // },
-  // fiveK: {
-  //   type: String,
-  //   required: false,
-  //   trim: true,
-  // },
-  // tenK: {
-  //   type: String,
-  //   required: false,
-  //   trim: true,
-  // },
-});
+  {
+    timestamps: {
+      createdAt: "joinDate",
+    },
+  }
+);
 
 memberSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
