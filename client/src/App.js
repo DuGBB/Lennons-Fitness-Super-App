@@ -8,6 +8,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import LoginForm from "./components/Login";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <header>
         <LoginForm />
       </header>
+      <Footer />
     </div>
   );
 }
