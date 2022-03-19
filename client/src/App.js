@@ -11,9 +11,14 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+
+import LoginForm from "./components/Login";
+import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
 import './App.css';
 import './index.css';
+
 
 function App() {
   return (
@@ -21,8 +26,15 @@ function App() {
     <Home/>
 
     <div>
+
+      <header>
+        <LoginForm />
+      </header>
+      <Footer />
+
       <header></header>
       <SignUpForm></SignUpForm>
+
     </div>
 
   );
