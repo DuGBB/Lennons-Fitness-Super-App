@@ -22,11 +22,9 @@ import './index.css';
 
 function App() {
   return (
-
+    <section>
     <Home/>
-
     <div>
-
       <header>
         <LoginForm />
       </header>
@@ -36,6 +34,7 @@ function App() {
       <SignUpForm></SignUpForm>
 
     </div>
+    </section>
 
   );
 };
