@@ -1,4 +1,8 @@
 import React from "react";
+import Benchmarks from "./components/Benchmarks";
+import ClassSchedule from "./components/ClassSchedule";
+import SignUpForm from "./components/SignUp";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
@@ -13,7 +17,14 @@ import './index.css';
 
 function App() {
   return (
+
     <Home/>
+
+    <div>
+      <header></header>
+      <SignUpForm></SignUpForm>
+    </div>
+
   );
 };
 
