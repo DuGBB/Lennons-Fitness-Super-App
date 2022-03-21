@@ -3,29 +3,36 @@ const { Schema } = mongoose;
 //const bcrypt = require('bcrypt');
 const { stringify } = require("nodemon/lib/utils");
 
-const trainerSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true,
+const trainerSchema = new Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [/.+@.+\..+/, "Must match an email address!"],
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
+    },
   },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5,
-  },
-});
+  {
+    timestamps: {
+      createdAt: "joinDate",
+    },
+  }
+);
 
 trainerSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
