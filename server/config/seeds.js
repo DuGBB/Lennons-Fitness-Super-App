@@ -1,5 +1,6 @@
 const db = require("./connection");
 const { Member, Trainer, Class, Activity, Standing } = require("../models");
+const ClassRoster = require("../models/ClassRoster");
 //const { insertMany } = require("../models/Member");
 
 db.once("open", async () => {
@@ -155,6 +156,30 @@ db.once("open", async () => {
   ]);
 
   console.log("standings seeded");
+
+  await ClassRoster.deleteMany();
+
+  const classRoster = await ClassRoster.insertMany([
+    {
+      class: classes[0]._id,
+      member: members[1]._id,
+    },
+    {
+      class: classes[3]._id,
+      member: members[0]._id,
+    },
+    {
+      class: classes[2]._id,
+      member: members[2]._id,
+    },
+    {
+      class: classes[3]._id,
+      member: members[2]._id,
+      total: "73",
+    },
+  ]);
+
+  console.log("classRoster seeded");
 
   process.exit();
 });

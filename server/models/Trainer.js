@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 //const bcrypt = require('bcrypt');
-const { stringify } = require("nodemon/lib/utils");
+//const { stringify } = require("nodemon/lib/utils");
 
 const trainerSchema = new Schema(
   {
@@ -37,14 +37,15 @@ const trainerSchema = new Schema(
 trainerSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
+    // this.password = await bcrypt.hash(this.password, saltRounds);
   }
 
   next();
 });
 
 trainerSchema.methods.isCorrectPassword = async function (password) {
-  return await bcrypt.compare(password, this.password);
+  //   return await bcrypt.compare(password, this.password);
+  return password === this.password;
 };
 
 const Trainer = mongoose.model("Trainer", trainerSchema);
