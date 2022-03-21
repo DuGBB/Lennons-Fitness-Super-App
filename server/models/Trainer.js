@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 //const bcrypt = require('bcrypt');
-//const { stringify } = require("nodemon/lib/utils");
+// const { stringify } = require("nodemon/lib/utils");
 
 const trainerSchema = new Schema(
   {
