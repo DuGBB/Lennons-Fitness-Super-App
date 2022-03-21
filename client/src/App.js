@@ -14,29 +14,28 @@ import { setContext } from "@apollo/client/link/context";
 
 import LoginForm from "./components/Login";
 import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 
 import Home from "./pages/Home";
-import './App.css';
-import './index.css';
-
+import "./App.css";
+import "./index.css";
 
 function App() {
   return (
     <section>
-    <Home/>
-    <div>
-      <header>
-        <LoginForm />
-      </header>
-      <Footer />
+      {/* <Home /> */}
+      <div>
+        <header>
+          <Nav />
+          <LoginForm />
+        </header>
 
-      <header></header>
-      <SignUpForm></SignUpForm>
-
-    </div>
+        <header></header>
+        <SignUpForm></SignUpForm>
+        <Footer />
+      </div>
     </section>
-
   );
-};
+}
 
 export default App;
