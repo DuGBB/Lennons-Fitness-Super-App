@@ -5,23 +5,27 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    members: async (parent, args, context) => {
-      if (context.member) {
-        const member = await Member.findById(context.member._id).populate({
-          //   path: "orders.products",
-          //   populate: "category",
-        });
+    member: async (parent, args, context) => {
+      if (context.user) {
+        const member = await Member.findOne({ _id: context.user._id }).select(
+          "-__v -password"
+        );
         return member;
       }
 
       throw new AuthenticationError("Not logged in");
     },
-    trainers: async (parent, args, context) => {
-      if (context.trainer) {
-        const trainer = await Trainer.findById(context.trainer._id).populate({
-          //   path: "orders.products",
-          //   populate: "category",
-        });
+    members: async (parent, args, context) => {
+      return Member.find();
+
+      throw new AuthenticationError("Not logged in");
+    },
+
+    trainer: async (parent, args, context) => {
+      if (context.user) {
+        const trainer = await Trainer.findOne({ _id: context.user._id }).select(
+          "-__v -password"
+        );
         return trainer;
       }
 
