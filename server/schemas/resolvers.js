@@ -38,8 +38,33 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+
     classes: async (parent) => {
       return Class.find({}).sort({ name: -1 });
+    },
+    memberClasses: async (parent, args, context) => {
+      if (context.user) {
+        return ClassRoster.find({
+          member: context.user._id,
+        })
+          .populate("member")
+          .populate("class")
+          .sort({ time: -1 });
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
+    memberStats: async (parent, args, context) => {
+      if (context.user) {
+        return Standing.find({
+          member: context.user._id,
+        })
+          .populate("member")
+          .populate("activity")
+          .sort({ name: -1 });
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
   },
   Mutation: {
@@ -122,6 +147,7 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+
     addStats: async (parent, args, context) => {
       if (context.user) {
         const statItem = await Activity.findById(args["activity"]);
@@ -136,6 +162,32 @@ const resolvers = {
       }
 
       throw new AuthenticationError("You need to be logged in!");
+    },
+    trainerViewMemberStats: async (parent, args, context) => {
+      if (context.user) {
+        const member = await Member.findById(args["memberId"]);
+        const memberStats = await Standing.find({ member: member })
+
+          .populate("member")
+          .populate("activity")
+          .sort({ name: -1, statDate: -1 });
+        return memberStats;
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
+    trainerViewMembersStats: async (parent, args, context) => {
+      if (context.user) {
+        const activity = await Activity.findById(args["activityId"]);
+        const activityStats = await Standing.find({ activity: activity })
+
+          .populate("member")
+          .populate("activity")
+          .sort({ name: -1, statDate: -1 });
+        return activityStats;
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
   },
 };

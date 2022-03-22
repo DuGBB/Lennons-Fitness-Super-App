@@ -7,6 +7,7 @@ const typeDefs = gql`
     lastName: String
     email: String
     age: String
+    joinDate: String
   }
 
   type Trainer {
@@ -61,6 +62,8 @@ const typeDefs = gql`
     member: Member
     trainer: Trainer
     classes: [Class]
+    memberClasses: [ClassRoster]
+    memberStats: [Standing]
   }
 
   type Mutation {
@@ -94,6 +97,8 @@ const typeDefs = gql`
     ): Trainer
     classSignup(class: String): ClassRoster
     addStats(activity: String, total: String): Standing
+    trainerViewMemberStats(memberId: String): [Standing]
+    trainerViewMembersStats(activityId: String): [Standing]
   }
 `;
 

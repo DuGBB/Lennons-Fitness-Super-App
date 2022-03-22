@@ -12,6 +12,9 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
+  playground: {
+    shareEnabled: true,
+  },
 });
 
 server.applyMiddleware({ app });
