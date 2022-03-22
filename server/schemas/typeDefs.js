@@ -2,10 +2,12 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Member {
+    _id: ID!
     firstName: String
     lastName: String
     email: String
     age: String
+    joinDate: String
   }
 
   type Trainer {
@@ -13,6 +15,23 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+  }
+
+  type Class {
+    _id: ID!
+    name: String
+    location: String
+    time: String
+    days: String
+    description: String
+    trainer: Trainer
+  }
+
+  type Activity {
+    _id: ID!
+    name: String
+    units: String
+    description: String
   }
 
   type AuthMember {
@@ -25,11 +44,26 @@ const typeDefs = gql`
     trainer: Trainer
   }
 
+  type ClassRoster {
+    _id: ID!
+    class: Class
+    member: Member
+  }
+  type Standing {
+    _id: ID!
+    activity: Activity
+    total: String
+    member: Member
+  }
+
   type Query {
     members: [Member]
     trainers: [Trainer]
     member: Member
     trainer: Trainer
+    classes: [Class]
+    memberClasses: [ClassRoster]
+    memberStats: [Standing]
   }
 
   type Mutation {
@@ -61,6 +95,10 @@ const typeDefs = gql`
       email: String
       password: String
     ): Trainer
+    classSignup(class: String): ClassRoster
+    addStats(activity: String, total: String): Standing
+    trainerViewMemberStats(memberId: String): [Standing]
+    trainerViewMembersStats(activityId: String): [Standing]
   }
 `;
 
