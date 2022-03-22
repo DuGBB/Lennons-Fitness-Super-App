@@ -1,5 +1,7 @@
 import React from 'react';
 import fit from '../assets/fit.png';
+import { useQuery } from '@apollo/client';
+import { QUERY_MEMBER } from '../utils/queries';
 
 
 function Home () {

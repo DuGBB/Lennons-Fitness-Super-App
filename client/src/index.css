@@ -30,6 +30,16 @@ html{
   background-color: #FFFFFF;
   border-radius: 25px;
 }
+#signupform{
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 800px;
+  width: 30%;
+  height: 60%;
+  margin: 100px auto;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+}
 
 #headerTitle{
   text-align: center;

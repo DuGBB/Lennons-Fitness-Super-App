@@ -1,7 +1,8 @@
 import React from "react";
 import Benchmarks from "./components/Benchmarks";
 import ClassSchedule from "./components/ClassSchedule";
-import SignUpForm from "./components/SignUp";
+import SignupForm from "./components/SignUp";
+
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
@@ -19,22 +20,31 @@ import Home from "./pages/Home";
 import './App.css';
 import './index.css';
 
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3001/graphql',
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
+
 
 function App() {
+  
   return (
+    <ApolloProvider>
     <section>
     <Home/>
     <div>
       <header>
         <LoginForm />
       </header>
-      <Footer />
-
-      <header></header>
-      <SignUpForm></SignUpForm>
-
+      <SignupForm />
     </div>
+    <Footer />
     </section>
+    </ApolloProvider>
 
   );
 };

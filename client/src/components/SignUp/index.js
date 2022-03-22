@@ -1,32 +1,90 @@
 import React, { useEffect, useState } from "react";
 
-function SignUpForm() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submit Form", useState);
+
+  class SignupForm extends React.Component {
+    render() {
+      return (
+        <div id="signupform">
+          <FormHeader title="Member Signup" />
+          <Form onSubmit={handleFormSubmit}/>
+        </div>
+      );
+    }
+  }
+  const FormHeader = (props) => <h2 id="headerTitle">{props.title}</h2>;
+
+  const [addMember] = useMutation(ADD_MEMBER);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addMember({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+        age: formState.age
+      },
+    });
+    const token = mutationResponse.data.addMember.token;
+    Auth.login(token);
   };
 
-  return (
-    <section className="container d-flex justify-content-center">
-      <form onSubmit={handleSubmit}>
-        <div className="d-flex row justify-content-center mx-2">
-          <label htmlFor="firstname">First Name:</label>
-          <input type="text" name="firstname" id="firstname"></input>
-          <label htmlFor="lastname">Last Name:</label>
-          <input type="text" name="lastname" id="lastname"></input>
-          <label htmlFor="age">Age:</label>
-          <input type="text" name="age" id="age"></input>
-          <label htmlFor="email">Email:</label>
-          <input type="text" name="email" id="email"></input>
-          <label htmlFor="password">Set Password</label>
-          <input type="text" name="password" id="password"></input>
-        </div>
-        <div className="d-flex row justify-content-center mx-2 mt-2">
-          <input type="submit"></input>
-        </div>
-      </form>
-    </section>
-  );
-}
 
-export default SignUpForm;
+  function Form (props) {
+
+    const [formState, setFormState] = useState({ FirstName: '', LastName: '', email: '', age: '', password: '' });
+  
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    };
+
+    <div>
+      <FormInput onChange={handleChange}
+        description="FirstName"
+        placeholder="Enter your first name"
+        type="text"
+      />
+      <FormInput onChange={handleChange}
+        description="LastName"
+        placeholder="Enter your last name"
+        type="text"
+      />
+      <FormInput onChange={handleChange}
+        description="email"
+        placeholder="Enter your email"
+        type="text"
+      />
+      <FormInput onChange={handleChange}
+        description="password"
+        placeholder="Enter your password"
+        type="password"
+      />
+      <FormInput onChange={handleChange}
+        description="age"
+        placeholder="Enter your age"
+        type="text"
+      />
+
+      <FormButton title="signup" />
+    </div>
+  };
+
+  const FormButton = (props) => (
+    <div id="button" class="row">
+      <button>{props.title}</button>
+    </div>
+  );
+  
+  const FormInput = (props) => (
+    <div class="row">
+      <label>{props.description}</label>
+      <input type={props.type} placeholder={props.placeholder} />
+    </div>
+  );
+
+export default SignupForm;
