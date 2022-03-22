@@ -9,7 +9,7 @@ class AuthService {
   // check if the user is still logged in
   loggedIn() {
     const token = this.getToken();
-    return !!toekn && !this.isTokenExpired(token);
+    return !!token && !this.isTokenExpired(token);
   }
 
   isTokenExpired(token) {
