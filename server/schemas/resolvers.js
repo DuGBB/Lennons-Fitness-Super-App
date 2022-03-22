@@ -94,7 +94,7 @@ const resolvers = {
       }
 
       const token = signToken(trainer);
-
+      //heroku stuff
       return { token, trainer };
     },
   },
