@@ -1,5 +1,12 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Member, Trainer } = require("../models");
+const {
+  Member,
+  Trainer,
+  Class,
+  ClassRoster,
+  Activity,
+  Standing,
+} = require("../models");
 const { signToken } = require("../utils/auth");
 //const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
@@ -30,6 +37,9 @@ const resolvers = {
       }
 
       throw new AuthenticationError("Not logged in");
+    },
+    classes: async (parent) => {
+      return Class.find({}).sort({ name: -1 });
     },
   },
   Mutation: {
@@ -97,6 +107,37 @@ const resolvers = {
       //heroku stuff
       return { token, trainer };
     },
+
+    classSignup: async (parent, args, context) => {
+      if (context.user) {
+        const signupItem = await Class.findById(args["class"]);
+        const member = await Member.findById(context.user._id);
+        const classSignup = await ClassRoster.create({
+          class: signupItem,
+          member: member,
+        });
+
+        return classSignup;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addStats: async (parent, args, context) => {
+      if (context.user) {
+        const statItem = await Activity.findById(args["activity"]);
+        const member = await Member.findById(context.user._id);
+        const newStat = await Standing.create({
+          total: args["total"],
+          member: member,
+          activity: statItem,
+        });
+
+        return newStat;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
+
 module.exports = resolvers;
