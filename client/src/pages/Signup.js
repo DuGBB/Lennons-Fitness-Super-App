@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { MEMBERLOGIN } from "../utils/mutations";
+import { ADD_MEMBER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
-const Login = (props) => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(MEMBERLOGIN);
+const Signup = () => {
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
+  const [addMember, { error }] = useMutation(ADD_MEMBER);
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,18 +20,16 @@ const Login = (props) => {
   };
 
   // submit form
-  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
+    // use try/catch instead of promises to handle errors
     try {
-      const { data } = await login({
+      // execute addUser mutation and pass in variable data from form
+      const { data } = await addMember({
         variables: { ...formState },
       });
-      console.log(data.memberLogin.token);
-
-      Auth.login(data.memberLogin.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -38,9 +39,18 @@ const Login = (props) => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
-          <h4 className="card-header">Login</h4>
+          <h4 className="card-header">Sign Up</h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
+              {/* <input
+                className="form-input"
+                placeholder="Your username"
+                name="username"
+                type="username"
+                id="username"
+                value={formState.username}
+                onChange={handleChange}
+              /> */}
               <input
                 className="form-input"
                 placeholder="Your email"
@@ -59,11 +69,14 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
+              <button
+                onSubmit={handleFormSubmit}
+                className="btn d-block w-100"
+                type="submit">
                 Submit
               </button>
             </form>
-            {error && <div>Login failed</div>}
+            {error && <div>Sign up failed</div>}
           </div>
         </div>
       </div>
@@ -71,4 +84,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Signup;
