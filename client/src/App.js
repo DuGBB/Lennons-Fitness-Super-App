@@ -53,17 +53,13 @@ function App() {
             setPersonalBestsSelected={setPersonalBestsSelected}></Nav>
         </header>
         <Switch>
-          <section>
-            {/* <Route exact path="/" component={Home} /> */}
-            <div>
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              {!classesSelected ? <Home /> : <ClassSchedule />}
-              {!personalBestsSelected ? <Home /> : <Benchmarks />}
-              <Footer />
-            </div>
-          </section>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/class-schedule" component={ClassSchedule} />
+          <Route exact path="/benchmarks" component={Benchmarks} />
         </Switch>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

@@ -1,38 +1,44 @@
 import React from "react";
-// import Auth from "../../utils/auth";
+import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 const HeaderLogo = require("../../assets/fit.png");
 
 function Nav(props) {
-  const {
-    classesSelected,
-    setClassesSelected,
-    personalBestsSelected,
-    setPersonalBestsSelected,
-  } = props;
-  return (
-    <nav>
+  if (Auth.loggedIn()) {
+    return (
+      <nav>
+        <ul>
+          <li>
+            <Link to="/signupforclasses">Sign Up for Classes</Link>
+          </li>
+          {/* <li className={`${classesSelected && "navActive"}`}>
+            <a onClick={() => setClassesSelected(true)} href="#classes-signup">
+              Sign Up For Classes
+            </a>
+          </li> */}
+          <div id="image-div">
+            <a href="/">
+              <img id="header-img" src={HeaderLogo} alt="logo" />
+            </a>
+          </div>
+          <li>
+            <Link to="/benchmarks">Update Personal Bests</Link>
+          </li>
+        </ul>
+      </nav>
+    );
+  } else {
+    return (
       <ul>
-        <li className={`${classesSelected && "navActive"}`}>
-          <a onClick={() => setClassesSelected(true)} href="#classes-signup">
-            Sign Up For Classes
-          </a>
+        <li>
+          <Link to="/signup">Signup</Link>
         </li>
-        <div id="image-div">
-          <a href="/">
-            <img id="header-img" src={HeaderLogo} alt="logo" />
-          </a>
-        </div>
-        <li className={`${personalBestsSelected && "navActive"}`}>
-          <a
-            onClick={() => setPersonalBestsSelected(true)}
-            href="#personalbests">
-            Update Personal Bests
-          </a>
+        <li className="mx-1">
+          <Link to="/login">Login</Link>
         </li>
       </ul>
-    </nav>
-  );
+    );
+  }
 }
 
 // function Nav() {

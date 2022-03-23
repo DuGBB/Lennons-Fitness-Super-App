@@ -20,8 +20,10 @@ html{
   font-size: 100%;
 }
 
+/* LOGIN */
 #loginform{
-  max-width: 500px;
+  display: flex;
+  max-width: 100px;
   min-width: 300px;
   max-height: 700px;
   width: 30%;
@@ -30,7 +32,6 @@ html{
   background-color: #FFFFFF;
   border-radius: 25px;
 }
-
 #headerTitle{
   text-align: center;
   font-family: 'open sans', sans-serif;
@@ -102,43 +103,73 @@ html{
 #button{
   padding-bottom: 1.5rem;
 }
+/* SIGNUP */
 
-#facebookIcon{
-  background-image:      url("https://image.flaticon.com/icons/svg/145/145802.svg");
-  background-repeat: no-repeat;
-  width: 3rem;
-  height: 3rem;
+/* HOMEPAGE */
+
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+} */
+
+/* body {
+  background: var(--color-bg);
+  background:radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 100%)
+} */
+
+
+.gradient__text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-#twitterIcon{
-  background-image: url("https://image.flaticon.com/icons/svg/145/145812.svg");
-  background-repeat: no-repeat;
-  width: 3rem;
-  height: 3rem;
+.gradient__text2 {
+  background: var(--gradient-text2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 3rem;
 }
 
-#googleIcon{
-  background-image: url("https://image.flaticon.com/icons/svg/145/145804.svg");
-  background-repeat: no-repeat;
-  width: 3rem;
-  height: 3rem;
+.hp {
+  display: flex;
+  flex-direction: row;
 }
 
-#iconGroup{
+.hp-1 {
   display: flex;
   justify-content: center;
-  padding: 2rem 0;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 15rem;
+  margin-left: 10rem;
 }
 
-#iconGroup a{
-  margin: 0 0.6rem;
+.hp-2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 15rem;
+  margin-left: 10rem;
 }
 
-#alternativeLogin {
-   text-align: center;
-   padding-top: 2rem;
-   margin-top: 1.5rem;
+.and {
+  margin-left: 5rem;
 }
+
+
+/* CLASS SCHEDULE */
+
+/* BENCHMARKS/PERSONAL BESTS */
+
+/* LOGOUT */
+
+
 
 
 
