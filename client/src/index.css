@@ -140,8 +140,44 @@ html{
    margin-top: 1.5rem;
 }
 
+
+
+
+/*  NAV  */
+
+#header-img {
+  object-fit: contain;
+  width: 15em;
+  height: 10em;
+  margin-top: 0em;
+}
+
+#image-div {
+  margin: 0 10em 0 10em;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content:space-around;
+  margin-top: 10px;
+  margin-bottom: 0em;
+  padding: 10px;
+  position: relative;
+  align-items: center;
+}
+
+li {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/*  FOOTER  */
+
 .footer {
   position: sticky;
 }
-
-

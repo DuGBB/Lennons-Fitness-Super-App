@@ -4,27 +4,32 @@ import { Link } from "react-router-dom";
 const HeaderLogo = require("../../assets/fit.png");
 
 function Nav(props) {
-  const { contactSelected, setContactSelected } = props;
+  const {
+    classesSelected,
+    setClassesSelected,
+    personalBestsSelected,
+    setPersonalBestsSelected,
+  } = props;
   return (
     <nav>
       <ul>
-        <li>
-          <a href="#store">Sign Up For Classes</a>
+        <li className={`${classesSelected && "navActive"}`}>
+          <a onClick={() => setClassesSelected(true)} href="#classes-signup">
+            Sign Up For Classes
+          </a>
         </li>
         <div id="image-div">
           <a href="/">
             <img id="header-img" src={HeaderLogo} alt="logo" />
           </a>
         </div>
-        <li>
-          <a href="#tutorials">Update Personal Bests</a>
-        </li>
-
-        {/* <li className={`${contactSelected && "navActive"}`}>
-          <a onClick={() => setContactSelected(true)} href="#Contact">
-            Contact
+        <li className={`${personalBestsSelected && "navActive"}`}>
+          <a
+            onClick={() => setPersonalBestsSelected(true)}
+            href="#personalbests">
+            Update Personal Bests
           </a>
-        </li> */}
+        </li>
       </ul>
     </nav>
   );

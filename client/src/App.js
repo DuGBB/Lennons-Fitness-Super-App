@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Benchmarks from "./components/Benchmarks";
 import ClassSchedule from "./components/ClassSchedule";
 import SignUpForm from "./components/SignUp";
@@ -40,18 +40,26 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [classesSelected, setClassesSelected] = useState(false);
+  const [personalBestsSelected, setPersonalBestsSelected] = useState(false);
   return (
     <ApolloProvider client={client}>
       <Router>
         <header>
-          <Nav />
+          <Nav
+            classesSelected={classesSelected}
+            setClassesSelected={setClassesSelected}
+            personalBestsSelected={personalBestsSelected}
+            setPersonalBestsSelected={setPersonalBestsSelected}></Nav>
         </header>
         <Switch>
           <section>
-            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" component={Home} /> */}
             <div>
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              {!classesSelected ? <Home /> : <ClassSchedule />}
+              {!personalBestsSelected ? <Home /> : <Benchmarks />}
               <Footer />
             </div>
           </section>
