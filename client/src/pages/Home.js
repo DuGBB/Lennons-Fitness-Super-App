@@ -1,5 +1,6 @@
 import React from "react";
 import fit from "../assets/fit.png";
+import Benchmarks from "../components/Benchmarks";
 
 function Home() {
   return (
