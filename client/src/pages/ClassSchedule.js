@@ -9,19 +9,21 @@ import { QUERY_CLASSES } from "../utils/queries";
 const SingleClass = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_CLASSES);
-  console.log(classes);
-  const classes = data?.classes || [];
-  console.log(classes);
+  const exerciseClasses = data?.exerciseClasses || [];
+  console.log(exerciseClasses);
   const loggedIn = Auth.loggedIn();
   return (
     <main>
-      {/* <div className={`${loggedIn && "navActive"}`}>
+      <div className={`${loggedIn && "navActive"}`}>
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <ClassSchedule classList={classList} title="these are classes" />
+          <ClassSchedule
+            exerciseClasses={exerciseClasses}
+            title="these are classes"
+          />
         )}
-      </div> */}
+      </div>
     </main>
   );
 };
