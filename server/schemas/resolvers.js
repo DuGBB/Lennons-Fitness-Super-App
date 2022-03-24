@@ -165,7 +165,6 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     updateAClass: async (parent, args, context) => {
-      console.log(args);
       if (context.user) {
         const trainer = await Trainer.findById(context.user._id);
         if (trainer) {
