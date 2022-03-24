@@ -42,6 +42,9 @@ const resolvers = {
     classes: async (parent) => {
       return Class.find({}).sort({ name: -1 });
     },
+    activities: async (parent) => {
+      return Activity.find({}).sort({ name: -1 });
+    },
     memberClasses: async (parent, args, context) => {
       if (context.user) {
         return ClassRoster.find({

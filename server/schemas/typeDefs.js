@@ -64,6 +64,7 @@ const typeDefs = gql`
     classes: [Class]
     memberClasses: [ClassRoster]
     memberStats: [Standing]
+    activities: [Activity]
   }
 
   type Mutation {
