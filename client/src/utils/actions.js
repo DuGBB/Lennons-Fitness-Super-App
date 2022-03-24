@@ -1,0 +1,1 @@
+export const QUERY_CLASSES = "QUERY_CLASSES";
