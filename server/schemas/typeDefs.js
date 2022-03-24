@@ -61,6 +61,7 @@ const typeDefs = gql`
     trainers: [Trainer]
     member: Member
     trainer: Trainer
+    class: Class
     classes: [Class]
     memberClasses: [ClassRoster]
     memberStats: [Standing]
@@ -100,6 +101,15 @@ const typeDefs = gql`
     addStats(activity: String, total: String): Standing
     trainerViewMemberStats(memberId: String): [Standing]
     trainerViewMembersStats(activityId: String): [Standing]
+    classDelete(classId: String): Class
+    updateAClass(
+      classId: String
+      classname: String
+      location: String
+      time: String
+      days: String
+      description: String
+    ): Class
   }
 `;
 

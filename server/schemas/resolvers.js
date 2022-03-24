@@ -84,8 +84,8 @@ const resolvers = {
       return { token, trainer };
     },
     updateMember: async (parent, args, context) => {
-      if (context.member) {
-        return await Member.findByIdAndUpdate(context.member._id, args, {
+      if (context.user) {
+        return await Member.findByIdAndUpdate(context.user._id, args, {
           new: true,
         });
       }
@@ -93,8 +93,8 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     updateTrainer: async (parent, args, context) => {
-      if (context.trainer) {
-        return await Trainer.findByIdAndUpdate(context.trainer._id, args, {
+      if (context.user) {
+        return await Trainer.findByIdAndUpdate(context.user._id, args, {
           new: true,
         });
       }
@@ -149,6 +149,36 @@ const resolvers = {
       }
 
       throw new AuthenticationError("You need to be logged in!");
+    },
+
+    classDelete: async (parent, args, context) => {
+      if (context.user) {
+        const trainer = await Trainer.findById(context.user._id);
+        if (trainer) {
+          const clazz = await Class.findById({ _id: args["classId"] });
+          const deleted = await Class.deleteOne({ _id: args["classId"] });
+          return clazz;
+        } else {
+          throw new AuthenticationError("You are not a trainer!");
+        }
+      }
+      throw new AuthenticationError("Not logged in");
+    },
+    updateAClass: async (parent, args, context) => {
+      console.log(args);
+      if (context.user) {
+        const trainer = await Trainer.findById(context.user._id);
+        if (trainer) {
+          const updated = await Class.findByIdAndUpdate(args["classId"], args, {
+            new: true,
+          });
+          return updated;
+        } else {
+          throw new AuthenticationError("You are not a trainer!");
+        }
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
 
     addStats: async (parent, args, context) => {
