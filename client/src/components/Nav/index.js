@@ -24,6 +24,9 @@ function Nav(props) {
           <li>
             <Link to="/benchmarks">Update Personal Bests</Link>
           </li>
+          <a href="/" onClick={() => Auth.logout()}>
+            Logout
+          </a>
         </ul>
       </nav>
     );

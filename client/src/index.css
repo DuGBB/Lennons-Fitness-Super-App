@@ -145,7 +145,7 @@ html{
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  margin-top: 15rem;
+  margin-top: 5rem;
   margin-left: 10rem;
 }
 
@@ -211,4 +211,7 @@ a {
 
 .footer {
   position: sticky;
+        height: 100px;
+        top: calc( 100vh - 100px );
+  
 }
