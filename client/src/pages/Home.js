@@ -1,5 +1,6 @@
 import React from "react";
 import fit from "../assets/fit.png";
+import Benchmarks from "../components/Benchmarks";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
           <span className="and">&</span>
           <br></br> Track your progress on one single app.
         </p>
+        <Benchmarks />
       </div>
       {/* <div className='hp-2'>
                 <img src={fit}/>

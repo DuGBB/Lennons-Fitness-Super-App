@@ -65,3 +65,22 @@ export const ADD_TRAINER = gql`
     }
   }
 `;
+
+export const ADD_STANDING = gql`
+mutation addStats($activity: String!, $total: String!) {
+  addStats(activity: $activity, total: $total) {
+    member{
+      _id
+      firstName
+      lastName
+      email
+    }
+    activity{
+      _id
+      name
+      description
+    }
+    total
+  }
+}
+`

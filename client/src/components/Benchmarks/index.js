@@ -1,21 +1,30 @@
+import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
+import { QUERY_ACTIVITIES } from "../../utils/queries";
 
 function Benchmarks (){
     
-    const [formState, setFormState] = useState({ squat: '', bench: '', deadlift: '', fiveK: '', tenK: '' });
-    const { squat, bench, deadlift, fiveK, tenK } = formState;
+    const activities = useQuery(QUERY_ACTIVITIES);
+    console.log(activities.data);
+        for (const [key, value] of Object.entries(activities)) {
+        console.log(`${key}: ${value}`);
+      };
 
+    const [formState, setFormState] = useState({ });
+    const { squat, bench, deadlift, fiveK, tenK } = formState;
+    // const [updateMember, { error }] = useMutation(ADD_MEMBER);
     const handleSubmit = (e) => {
         e.preventDefault();
           console.log('Submit Form', formState);
       };
 
       const handleChange = (e) => {
-
           setFormState({ ...formState, [e.target.name]: e.target.value });
           console.log('Handle Form', formState);
 
       };
+
+      
 
 
     return (
