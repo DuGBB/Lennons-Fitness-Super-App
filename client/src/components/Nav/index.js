@@ -36,6 +36,11 @@ function Nav(props) {
         <li>
           <Link to="/signup">Signup</Link>
         </li>
+        <div id="image-div">
+          <a href="/">
+            <img id="header-img" src={HeaderLogo} alt="logo" />
+          </a>
+        </div>
         <li className="mx-1">
           <Link to="/login">Login</Link>
         </li>
