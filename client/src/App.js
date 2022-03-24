@@ -12,7 +12,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import Login from "./pages/Login";
+import LoginPage from "./pages/Login";
 import Signup from "./pages/Signup";
 // import LoginForm from "./components/Login";
 import Footer from "./components/Footer";
@@ -55,7 +55,7 @@ function App() {
         </header>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/class-schedule" component={ClassSchedule} />
           <Route exact path="/benchmarks" component={Benchmarks} />

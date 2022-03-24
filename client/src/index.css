@@ -14,6 +14,7 @@ body{
   background: rgb(34,193,195);
   background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
   font-family: "work sans";
+  
 }
 
 html{
@@ -211,7 +212,7 @@ a {
 
 .footer {
   position: sticky;
-        height: 100px;
-        top: calc( 100vh - 100px );
+  height: 100px;
+  top: calc( 100vh - 100px );
   
 }
