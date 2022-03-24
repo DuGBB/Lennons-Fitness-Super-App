@@ -12,6 +12,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Login from "./pages/Login";
+import TrainerLogin from "./pages/TrainerLogin";
 import Signup from "./pages/Signup";
 // import LoginForm from "./components/Login";
 import Footer from "./components/Footer";
@@ -55,6 +56,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/trainer-login" component={TrainerLogin} />
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/class-schedule" component={ClassSchedule} />
           <Route exact path="/benchmarks" component={Benchmarks} />
