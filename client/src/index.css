@@ -12,8 +12,12 @@
 
 body{
   background: rgb(34,193,195);
-  background: linear-gradient(135deg, rgba(34,193,195,1) 0%,     rgba(253,187,45,1) 100%);
+  background: radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 100%);
   font-family: "work sans";
+  display: flexbox;
+  min-height: 100vh;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 html{
@@ -29,7 +33,7 @@ html{
   width: 30%;
   height: 60%;
   margin: 100px auto;
-  background-color: #FFFFFF;
+  background-color: #fde4e4;
   border-radius: 25px;
 }
 #headerTitle{
@@ -138,6 +142,8 @@ html{
 .hp {
   display: flex;
   flex-direction: row;
+  min-height: 100%;
+  margin-bottom: 100px;
 }
 
 .hp-1 {
@@ -210,8 +216,36 @@ a {
 /*  FOOTER  */
 
 .footer {
-  position: sticky;
-        height: 100px;
-        top: calc( 100vh - 100px );
-  
+  position: fixed;
+  width: 100%;
+  min-height: 100px;
+  padding: 20px 50px;
+  margin-top: 5px;
+  justify-content: center;
+  align-items: center;
+
 }
+
+.card {
+  background-color: rgba(0, 0, 0, 0.404);
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 160px;
+  margin-left: 35px;
+}
+
+.btn {
+  color: white;
+}
+
+.form-input2{
+  margin-left: 15px;
+}
+
+h2 {
+  color: white;
+}
+
+
+
