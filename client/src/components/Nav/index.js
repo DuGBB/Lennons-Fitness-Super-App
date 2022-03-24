@@ -9,7 +9,7 @@ function Nav(props) {
       <nav>
         <ul>
           <li>
-            <Link to="/signupforclasses">Sign Up for Classes</Link>
+            <Link to="/class-schedule">Sign Up for Classes</Link>
           </li>
           {/* <li className={`${classesSelected && "navActive"}`}>
             <a onClick={() => setClassesSelected(true)} href="#classes-signup">

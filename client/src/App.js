@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Benchmarks from "./components/Benchmarks";
-import ClassSchedule from "./components/ClassSchedule";
+// import ClassSchedule from "./components/ClassSchedule";
+import ClassSchedule from "./pages/ClassSchedule";
 import SignUpForm from "./components/SignUp";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";

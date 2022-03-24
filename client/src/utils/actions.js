@@ -1,0 +1,1 @@
+export const SIGNUP_FOR_CLASS = "SIGNUP_FOR_CLASS";
