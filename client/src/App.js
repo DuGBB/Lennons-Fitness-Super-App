@@ -16,6 +16,7 @@ import TrainerLogin from "./pages/TrainerLogin";
 import Signup from "./pages/Signup";
 // import LoginForm from "./components/Login";
 import Footer from "./components/Footer";
+import Memberstats from "./components/Memberstats";
 
 import Home from "./pages/Home";
 import "./App.css";
@@ -58,6 +59,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/trainer-login" component={TrainerLogin} />
           <Route exact path="/signup" component={SignUpForm} />
+          <Route exact path="/memberstats" component={Memberstats} />
           <Route exact path="/class-schedule" component={ClassSchedule} />
           <Route exact path="/benchmarks" component={Benchmarks} />
         </Switch>
