@@ -42,7 +42,10 @@ function Nav(props) {
           </a>
         </div>
         <li className="mx-1">
-          <Link to="/login">Login</Link>
+          <Link to="/login">Member Login</Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/trainer-login">Trainer Login</Link>
         </li>
       </ul>
     );
