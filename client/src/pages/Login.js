@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { MEMBERLOGIN } from "../utils/mutations";
 import Auth from "../utils/auth";
 
+
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(MEMBERLOGIN);
@@ -35,10 +36,10 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className=" flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
         <div className="card">
-          <h4 className="card-header">Login</h4>
+          <h4 className="card-header ">Login</h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
               <input
@@ -51,7 +52,7 @@ const Login = (props) => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input2"
                 placeholder="******"
                 name="password"
                 type="password"
@@ -59,7 +60,7 @@ const Login = (props) => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <button className="btn d-block w-100" type="submit">
+              <button className="btn d-block w-100 " type="submit">
                 Submit
               </button>
             </form>

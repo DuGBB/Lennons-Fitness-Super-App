@@ -18,8 +18,7 @@ import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
-import "./App.css";
-import "./index.css";
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",

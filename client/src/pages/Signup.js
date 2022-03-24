@@ -52,7 +52,7 @@ const Signup = () => {
                 onChange={handleChange}
               /> */}
               <input
-                className="form-input"
+                className="form-input2"
                 placeholder="Your email"
                 name="email"
                 type="email"

@@ -56,7 +56,7 @@ const TrainerLogin = (props) => {
                 onChange={handleChange}
               />
               <input
-                className="form-input"
+                className="form-input2"
                 placeholder="******"
                 name="password"
                 type="password"
